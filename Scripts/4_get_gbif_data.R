@@ -1,3 +1,6 @@
+rm(list = ls())
+gc()
+
 library(spocc)
 library(sp)
 
@@ -10,11 +13,11 @@ c_cornuta <- occ(query = "Ceratophrys cornuta", from = "gbif", geometry = bbox_p
 c_cornuta
 
 class(c_cornuta)
-
-
+str(c_cornuta)
+c_cornuta$gbif$data$Ceratophrys_cornuta
 c_cornuta_df <- occ2df(c_cornuta)
 
-str(c_cornuta_df)
+View(c_cornuta_df)
 
 library(sp)
 library(raster)
@@ -25,6 +28,8 @@ plot(c_cornuta_df)
 
 library(mapview)
 mapview(c_cornuta_df)
+writeOGR(c_cornuta_df, "E:/IIAP", "Ceratophrys_cornuta", driver = "ESRI Shapefile")
+
 ####
 library(redlistr)
 # Create etent of occurence
