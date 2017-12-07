@@ -23,12 +23,5 @@ if [ -f /etc/bashrc ]; then
 fi
 
 export PATH=/opt/shared/R-3.4.2/bin:$PATH
+
 export GDAL_HOME=/opt/shared/gdal-2.2.2
-
-#!/usr/bin/env Rscript
-
-#PBS -N test_code
-#PBS -l walltime=24:00:00
-#PBS -l mem=32gb
-#PBS -o /home/mcengic/test_output.txt
-
